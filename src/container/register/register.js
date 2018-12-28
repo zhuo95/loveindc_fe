@@ -23,7 +23,7 @@ class Register extends React.Component{
                         <WhiteSpace/>
                         <InputItem>Password</InputItem>
                         <WhiteSpace/>
-                        <InputItem>Confirm Pass</InputItem>
+                        <InputItem>Confirm</InputItem>
                     </List>
                     <WhiteSpace/>
                     <Button type='primary'>Sign up</Button>
