@@ -1,5 +1,5 @@
 import axios from '../config/base'
-
+import Qs from 'qs';
 const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 const ERROR_MSG = 'ERROR_MSG';
 
@@ -34,7 +34,7 @@ function registerSuccess(data) {
             }
 }
 
-export function register({user, pass, confirmPass}){
+export function register({user, pass , confirmPass}){
     if(!user || !pass || !confirmPass){
         return errorMsg('请填写所有信息')
     }
@@ -44,7 +44,7 @@ export function register({user, pass, confirmPass}){
     }
 
     return dispatch =>{
-        axios.post('user/register', {user, pass})
+        axios.post('user/register', Qs.stringify({user, pass}))
             .then(res=>{
                 if(res.status===200 && res.data.code === 0){
                     dispatch(registerSuccess({user, pass}))
